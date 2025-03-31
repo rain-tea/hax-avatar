@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.1rem;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        -45deg,
+        #6d8f5b,
+        #6d8f5b 30px,
+        #7b9a6c 30px,
+        #7b9a6c 60px);
+
+}
+
+main {
+    text-align: center;
+}
+
+.button {
+    margin: 0 auto;
+    font-size: 15px;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+    box-shadow: none;
+}
+
+.button:hover {
+    background: linear-gradient(to bottom, #faed98, #ffe957);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+}
+
+/* Form */
+.input {
+    margin: 50px;
+}
+
+.input-font {
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.no-border {
+    border: none;
+}
+
+h1 {
+    letter-spacing: 0.3rem;
+    font-size: 40px;
+    font-weight: 600;
+    padding: 20px;
+    color: white;
+    background-color: #7aad6d;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#avatar-input-label {
+    display: block;
+    font-weight: 600;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+#avatar-input {
+    display: block;
+    margin: 10px auto;
+    font-size: 18px;
+    width: 100px;
+    text-align: center;
+}
+
+#avatar-color {
+    display: block;
+    margin: 20px auto;
+    font-size: 18px;
+    width: 100px;
+    text-align: center;
+}
+
+#generate-avatar {
+    font-size: 18px;
+    width: 200px;
+}
+
+/* Avatar */
+.circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: coral;
+    border: 20px solid #000;
+    position: relative;
+}
+
+.avatar {
+    font-family: "Open Sans", sans-serif;
+    font-size: 175px;
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.player-avatar {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+#download-avatar {
+    margin: 50px 0;
+}
+
+@media (max-height: 600px) {
+    .input-font {
+        font-size: 12px;
+        font-weight: 300;
+    }
+
+    #avatar-input-label {
+        display: none;
+    }
+
+    #avatar-input {
+        display: inline;
+    }
+
+    #avatar-color {
+        display: inline;
+    }
+
+    #generate-avatar {
+        display: block;
+    }
+
+}

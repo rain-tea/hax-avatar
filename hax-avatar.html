@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Haxball Avatar</title>
+        <link rel="stylesheet" href="hax-avatar.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Work+Sans:wght@100..900&display=swap">
+        <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+    </head>
+    <body>
+        <main>
+            <h1>Haxball Avatar Editor</h1>
+            <form id="avatar-form">
+                <div class="input">
+                    <label id="avatar-input-label" for="avatar-input">Input Avatar (max 2 characters):</label>
+                    <input class="input-font" id="avatar-input" type="text" placeholder="20" maxlength="2" required>
+                    
+                    <select class="input-font no-border" id="avatar-color">
+                        <option value="coral">Red</option>
+                        <option value="cornflowerblue">Blue</option>
+                    </select>
+                    <input class="input-font no-border button" id="generate-avatar" type="submit" value="Generate Avatar">
+                </div>
+            </form>
+            <div class="player-avatar">
+                <div class="circle">
+                    <div id="avatar-display" class="avatar">
+                        1
+                    </div>
+                </div>               
+            </div>
+            <button class="button no-border input-font" id="download-avatar">Download PNG</button>
+        </main>
+        <script> // Copilot's JS code
+            // Add an event listener to the form with the id 'avatar-form'
+            document.getElementById('avatar-form').addEventListener('submit', function(event) {
+                // Prevent the default form submission behavior
+                event.preventDefault();
+
+                // Fetch user input from input field and dropdown
+                var avatarInput = document.getElementById('avatar-input').value;
+                var avatarColor = document.getElementById('avatar-color').value;
+
+                // Set the text content of the element with the id 'avatar-display' to the input value
+                document.getElementById('avatar-display').textContent = avatarInput;
+                // Set the background color of the circle element to the selected color
+                document.querySelector('.circle').style.backgroundColor = avatarColor;
+            });
+
+            // Download the player-avatar as an image
+            document.getElementById('download-avatar').addEventListener('click', function() {
+                const playerAvatar = document.querySelector('.player-avatar'); // Select the player-avatar element
+
+                // Use html2canvas to capture the element
+                html2canvas(playerAvatar, { backgroundColor: null }).then(canvas => {
+                    // Convert the canvas to a data URL (image)
+                    const image = canvas.toDataURL('image/png');
+
+                    // Create a temporary link element to download the image
+                    const link = document.createElement('a');
+                    link.href = image;
+                    link.download = 'player-avatar.png'; // Set the file name
+                    link.click(); // Trigger the download
+                });
+            });
+        </script>
+    </body>
+</html>
